@@ -11,7 +11,7 @@ app.use(cors());
 app.use(express.json());
 
 // GET: Ambil semua proyek
-app.get('/api/projects', async (req, res) => {
+app.get('/', async (req, res) => {
   try {
     const projects = await prisma.project.findMany({
       orderBy: { createdAt: 'desc' }
@@ -23,7 +23,7 @@ app.get('/api/projects', async (req, res) => {
 });
 
 // POST: Tambah proyek baru
-app.post('/api/projects', async (req, res) => {
+app.post('/', async (req, res) => {
   const { title, type, previewUrl, projectUrl, githubUrl, description } = req.body;
   try {
     const newProject = await prisma.project.create({
@@ -36,7 +36,7 @@ app.post('/api/projects', async (req, res) => {
 });
 
 // PUT: Edit proyek
-app.put('/api/projects/:id', async (req, res) => {
+app.put('/:id', async (req, res) => {
   const { id } = req.params;
   const { title, type, previewUrl, projectUrl, githubUrl, description } = req.body;
   try {
@@ -51,7 +51,7 @@ app.put('/api/projects/:id', async (req, res) => {
 });
 
 // DELETE: Hapus proyek
-app.delete('/api/projects/:id', async (req, res) => {
+app.delete('/:id', async (req, res) => {
   const { id } = req.params;
   try {
     await prisma.project.delete({

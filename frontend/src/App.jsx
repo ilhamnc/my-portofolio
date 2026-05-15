@@ -16,7 +16,7 @@ function App() {
     description: ''
   });
 
-  const API_URL = 'http://localhost:5000/api/projects';
+  const API_URL = import.meta.env.VITE_API_URL;
 
   const fetchProjects = () => {
     axios.get(API_URL)
