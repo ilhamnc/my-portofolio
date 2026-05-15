@@ -1,0 +1,20 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Project {
+  id          Int      @id @default(autoincrement())
+  title       String
+  type        String   // Nilai: "website" atau "figma"
+  previewUrl  String   // URL gambar thumbnail
+  projectUrl  String   // Link domain website atau link Figma
+  githubUrl   String?  // Nullable, khusus untuk project website
+  description String?
+  createdAt   DateTime @default(now())
+}
