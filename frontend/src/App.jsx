@@ -132,7 +132,7 @@ function App() {
                 Industrial Engineering & Web Development
               </h2>
               <p className="mt-6 text-slate-400 leading-relaxed">
-                Halo! Saya berdomisili di Yogyakarta dengan latar belakang di bidang Teknik Industri dan Informatika. 
+                Halo! Saya berdomisili di Yogyakarta dengan latar belakang di bidang Informatika. 
                 Saya memiliki ketertarikan mendalam pada optimasi sistem terintegrasi, manajemen basis data, serta full-stack web development. 
                 Berikut adalah beberapa eksplorasi teknis dan proyek yang telah saya kerjakan.
               </p>
