@@ -6,13 +6,13 @@ export default function PublicPortfolio() {
 
   useEffect(() => {
     Promise.all([
-      fetch('my-portofolio-api.vercel.app/api/profile').then(r => r.json()),
-      fetch('my-portofolio-api.vercel.app/api/experiences').then(r => r.json()),
-      fetch('my-portofolio-api.vercel.app/api/educations').then(r => r.json()),
-      fetch('my-portofolio-api.vercel.app/api/certifications').then(r => r.json()),
-      fetch('my-portofolio-api.vercel.app/api/projects').then(r => r.json()),
-      fetch('my-portofolio-api.vercel.app/api/skills').then(r => r.json()),
-      fetch('my-portofolio-api.vercel.app/api/tools').then(r => r.json())
+      fetch('https://my-portofolio-api.vercel.app/api/profile').then(r => r.json()),
+      fetch('https://my-portofolio-api.vercel.app/api/experiences').then(r => r.json()),
+      fetch('https://my-portofolio-api.vercel.app/api/educations').then(r => r.json()),
+      fetch('https://my-portofolio-api.vercel.app/api/certifications').then(r => r.json()),
+      fetch('https://my-portofolio-api.vercel.app/api/projects').then(r => r.json()),
+      fetch('https://my-portofolio-api.vercel.app/api/skills').then(r => r.json()),
+      fetch('https://my-portofolio-api.vercel.app/api/tools').then(r => r.json())
     ]).then(([profile, experiences, educations, certifications, projects, skills, tools]) => {
       setData({ profile, experiences, educations, certifications, projects, skills, tools });
     });

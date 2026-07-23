@@ -7,7 +7,7 @@ export default function EditProject() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await fetch('my-portofolio-api.vercel.app/api/projects', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(formData) });
+    await fetch('https://my-portofolio-api.vercel.app/api/projects', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(formData) });
     navigate('/admin');
   };
   const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });

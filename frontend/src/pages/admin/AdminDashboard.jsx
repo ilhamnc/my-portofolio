@@ -8,13 +8,13 @@ export default function AdminDashboard() {
 
   const fetchData = () => {
     Promise.all([
-      fetch('my-portofolio-api.vercel.app/api/profile').then(r => r.json()),
-      fetch('my-portofolio-api.vercel.app/api/experiences').then(r => r.json()),
-      fetch('my-portofolio-api.vercel.app/api/educations').then(r => r.json()),
-      fetch('my-portofolio-api.vercel.app/api/certifications').then(r => r.json()),
-      fetch('my-portofolio-api.vercel.app/api/projects').then(r => r.json()),
-      fetch('my-portofolio-api.vercel.app/api/skills').then(r => r.json()),
-      fetch('my-portofolio-api.vercel.app/api/tools').then(r => r.json())
+      fetch('https://my-portofolio-api.vercel.app/api/profile').then(r => r.json()),
+      fetch('https://my-portofolio-api.vercel.app/api/experiences').then(r => r.json()),
+      fetch('https://my-portofolio-api.vercel.app/api/educations').then(r => r.json()),
+      fetch('https://my-portofolio-api.vercel.app/api/certifications').then(r => r.json()),
+      fetch('https://my-portofolio-api.vercel.app/api/projects').then(r => r.json()),
+      fetch('https://my-portofolio-api.vercel.app/api/skills').then(r => r.json()),
+      fetch('https://my-portofolio-api.vercel.app/api/tools').then(r => r.json())
     ]).then(([profile, experiences, educations, certifications, projects, skills, tools]) => {
       setData({ profile, experiences, educations, certifications, projects, skills, tools });
     });
@@ -24,7 +24,7 @@ export default function AdminDashboard() {
 
   const handleDelete = async (endpoint, id) => {
     if (window.confirm('Yakin ingin menghapus?')) {
-      await fetch(`my-portofolio-api.vercel.app/api/${endpoint}/${id}`, { method: 'DELETE' });
+      await fetch(`https://my-portofolio-api.vercel.app/api/${endpoint}/${id}`, { method: 'DELETE' });
       fetchData();
     }
   };
@@ -32,7 +32,7 @@ export default function AdminDashboard() {
   const handleAddSkill = async (e) => {
     e.preventDefault();
     if(!newSkill.name) return;
-    await fetch('my-portofolio-api.vercel.app/api/skills', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(newSkill) });
+    await fetch('https://my-portofolio-api.vercel.app/api/skills', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(newSkill) });
     setNewSkill({ name: '', category: 'Bahasa Pemrograman', iconUrl: '' });
     fetchData();
   };
@@ -40,7 +40,7 @@ export default function AdminDashboard() {
   const handleAddTool = async (e) => {
     e.preventDefault();
     if(!newTool.name) return;
-    await fetch('my-portofolio-api.vercel.app/api/tools', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(newTool) });
+    await fetch('https://my-portofolio-api.vercel.app/api/tools', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(newTool) });
     setNewTool({ name: '', iconUrl: '' });
     fetchData();
   };

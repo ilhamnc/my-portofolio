@@ -9,7 +9,7 @@ export default function EditExperience() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await fetch('my-portofolio-api.vercel.app/api/experiences', {
+    await fetch('https://my-portofolio-api.vercel.app/api/experiences', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData)

@@ -6,12 +6,12 @@ export default function EditProfile() {
   const [formData, setFormData] = useState({ name: '', title: '', bio: '', location: '', email: '', whatsapp: '', linkedinUrl: '', githubUrl: '', photoUrl: '' });
 
   useEffect(() => {
-    fetch('my-portofolio-api.vercel.app/api/profile').then(res => res.json()).then(data => { if(data.id) setFormData(data); });
+    fetch('https://my-portofolio-api.vercel.app/api/profile').then(res => res.json()).then(data => { if(data.id) setFormData(data); });
   }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await fetch('my-portofolio-api.vercel.app/api/profile', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(formData) });
+    await fetch('https://my-portofolio-api.vercel.app/api/profile', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(formData) });
     navigate('/admin');
   };
 

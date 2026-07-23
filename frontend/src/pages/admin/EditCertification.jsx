@@ -9,7 +9,7 @@ export default function EditCertification() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await fetch('my-portofolio-api.vercel.app/api/certifications', {
+    await fetch('https://my-portofolio-api.vercel.app/api/certifications', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData)
