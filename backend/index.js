@@ -6,7 +6,10 @@ const app = express();
 const prisma = new PrismaClient();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors());
+app.use(cors({
+    origin: ['http://localhost:5173', 'https://my-portofolio-hmnc.vercel.app'], // Masukkan URL Vercel di sini
+    credentials: true
+}));
 app.use(express.json());
 
 // Profil

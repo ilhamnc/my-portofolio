@@ -9,7 +9,7 @@ export default function EditEducation() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await fetch('http://localhost:5000/api/educations', {
+    await fetch('my-portofolio-api.vercel.app/api/educations', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData)
