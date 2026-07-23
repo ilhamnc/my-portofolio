@@ -8,13 +8,89 @@ datasource db {
   directUrl = env("DIRECT_URL")
 }
 
+// ==========================================
+// 1. DATA DIRI, BIODATA, & SOSMED
+// ==========================================
+model Profile {
+  id          Int     @id @default(autoincrement())
+  name        String
+  title       String  
+  bio         String  @db.Text
+  location    String?
+  photoUrl    String? // <--- Tambahan untuk foto profil
+  
+  // Kontak & Sosmed
+  email       String
+  whatsapp    String?
+  linkedinUrl String?
+  githubUrl   String?
+}
+
+// ==========================================
+// 2. KEMAMPUAN (SKILLS)
+// ==========================================
+model Skill {
+  id       Int     @id @default(autoincrement())
+  name     String 
+  category String 
+  iconUrl  String? // <--- Tambahan untuk ikon
+}
+
+// ==========================================
+// 3. ALAT & PLATFORM (TOOLS)
+// ==========================================
+model Tool {
+  id       Int     @id @default(autoincrement())
+  name     String 
+  iconUrl  String? // <--- Tambahan untuk ikon
+}
+
+// ==========================================
+// 4. PENGALAMAN KERJA (EXPERIENCE)
+// ==========================================
+model Experience {
+  id           Int       @id @default(autoincrement())
+  jobTitle     String
+  companyName  String
+  jobType      String
+  locationType String
+  startDate    DateTime
+  endDate      DateTime?
+  description  String    @db.Text
+}
+
+// ==========================================
+// 5. PENDIDIKAN (EDUCATION)
+// ==========================================
+model Education {
+  id              Int       @id @default(autoincrement())
+  level           String
+  institutionName String
+  fieldOfStudy    String
+  gpa             Float?
+  startDate       DateTime
+  endDate         DateTime?
+}
+
+// ==========================================
+// 6. SERTIFIKASI (CERTIFICATION)
+// ==========================================
+model Certification {
+  id             Int       @id @default(autoincrement())
+  programName    String
+  institution    String
+  issueDate      DateTime
+  expirationDate DateTime?
+  certificateUrl String?   // Tambahkan baris ini untuk link gambar/PDF sertifikat
+}
+
+// ==========================================
+// 7. PROYEK (PROJECT)
+// ==========================================
 model Project {
-  id          Int      @id @default(autoincrement())
-  title       String
-  type        String   // Nilai: "website" atau "figma"
-  previewUrl  String   // URL gambar thumbnail
-  projectUrl  String   // Link domain website atau link Figma
-  githubUrl   String?  // Nullable, khusus untuk project website
-  description String?
-  createdAt   DateTime @default(now())
+  id          Int     @id @default(autoincrement())
+  name        String
+  description String  @db.Text
+  imageUrl    String?
+  projectUrl  String?
 }
